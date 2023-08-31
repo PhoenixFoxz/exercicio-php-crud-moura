@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+
+a {
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+h2 a {
+    font-size: 0.9rem;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+
+.alunos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 80%;
+    margin: auto;
+}
+
+.aluno {
+    background-color: aliceblue;
+    padding: 1rem;
+    width: 49%;
+    box-shadow: black 0 0 10px;
+}
