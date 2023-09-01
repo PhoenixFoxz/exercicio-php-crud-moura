@@ -1,9 +1,11 @@
 <?php
-require_once "../src/funcoes-alunos.php"; 
+require_once "../src/funcoes-alunos.php";
+
 
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 $listaDeAlunos = lerAlunos($conexao)
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,15 +25,24 @@ $listaDeAlunos = lerAlunos($conexao)
         foreach ($listaDeAlunos as $alunos){
         ?>
             <article class="aluno">
+        <?php 
+        if ($alunos['media'] >= 7) {
+            $situacao = "Aprovado";
+        } elseif ($alunos['media'] >= 5) {
+            $situacao = "Recuperação";
+        } else {
+            $situacao = "Reprovado";
+        }
+        ?>
+                <h2><?=$situacao?></h2>
                 <h3><?=$alunos['nome']?></h3>
                 <h4>Notas</h4>
                 <p><b>Nota 1: </b><?=$alunos['primeira']?></p>
                 <p><b>Nota 2: </b><?=$alunos['segunda']?></p>
-                <p><b>Média:</b> Média</p>
-                <p><b>Situação:</b> Situação</p>
+                <p><b>Média: </b><?=$alunos['media']?></p>
                 <hr>
                 <p>
-                    <a href="excluir.php">Excluir Aluno</a> | <a href="atualizar.php">Editar Aluno</a>
+                    <a class="excluir" href="excluir.php?id=<?=$alunos['id']?>">Excluir Aluno</a> | <a href="atualizar.php?id=<?=$alunos['id']?>">Editar Aluno</a>
                 </p>
             </article>
         <?php
@@ -40,6 +51,6 @@ $listaDeAlunos = lerAlunos($conexao)
     </div>
     <p><a href="../index.php">Voltar ao início</a></p>
 </div>
-
+<script src="../js/confirm-exclusao.js"></script>
 </body>
 </html>
