@@ -17,7 +17,7 @@ body {
 }
 
 a {
-    color: blue;
+    color: black;
     font-weight: bold;
     text-decoration: none;
     font-size: 1rem;
@@ -42,8 +42,22 @@ a:focus {
 }
 
 .aluno {
-    background-color: aliceblue;
     padding: 1rem;
     width: 49%;
     box-shadow: black 0 0 10px;
+}
+
+.aprovado {
+    background-color: aliceblue;
+    color: blue;
+}
+
+.reprovado {
+    background-color: rgb(255, 205, 211);
+    color: red;
+}
+
+.recuperacao {
+    background-color: rgb(240, 218, 190);
+    color: rgb(150, 66, 6);
 }

@@ -23,17 +23,18 @@ $listaDeAlunos = lerAlunos($conexao)
     <div class="alunos">
         <?php
         foreach ($listaDeAlunos as $alunos){
+            if ($alunos['media'] >= 7) {
+                $situacao = "Aprovado";
+                $class = "aprovado";
+            } elseif ($alunos['media'] >= 5) {
+                $situacao = "Recuperação";
+                $class = "recuperacao";
+            } else {
+                $situacao = "Reprovado";
+                $class = "reprovado";
+            }
         ?>
-            <article class="aluno">
-        <?php 
-        if ($alunos['media'] >= 7) {
-            $situacao = "Aprovado";
-        } elseif ($alunos['media'] >= 5) {
-            $situacao = "Recuperação";
-        } else {
-            $situacao = "Reprovado";
-        }
-        ?>
+            <article class="aluno <?=$class?>">
                 <h2><?=$situacao?></h2>
                 <h3><?=$alunos['nome']?></h3>
                 <h4>Notas</h4>
